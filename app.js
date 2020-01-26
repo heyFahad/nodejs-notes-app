@@ -1,6 +1,13 @@
 const yargs = require('yargs');
 const notes = require('./notes.js');
 
+//
+// Goal: Refactor all functions
+//
+// 1. If function is a method, use ES6 method definition syntax
+// 2. Otherwise, use most concise arrow function possible
+// 3. Test your work!
+
 // Customize yargs version
 yargs.version('1.1.0');
 
@@ -28,7 +35,7 @@ yargs.command({
       type: 'string'
     }
   },
-  handler: function(argv) {
+  handler(argv) {
     notes.addNote(argv.title, argv.body);
   }
 });
@@ -53,7 +60,7 @@ yargs.command({
       type: 'string'
     }
   },
-  handler: function(argv) {
+  handler(argv) {
     notes.removeNote(argv.title);
   }
 });
@@ -69,7 +76,7 @@ yargs.command({
 yargs.command({
   command: 'list',
   describe: 'List your notes',
-  handler: function() {
+  handler() {
     console.log('Listing out all notes');
   }
 });
@@ -78,7 +85,7 @@ yargs.command({
 yargs.command({
   command: 'read',
   describe: 'Read a note',
-  handler: function() {
+  handler() {
     console.log('Reading a note');
   }
 });
